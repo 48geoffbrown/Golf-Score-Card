@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="golfMap.css" type="text/css"/>
+    <link href='https://fonts.googleapis.com/css?family=Russo+One' rel='stylesheet' type='text/css'>
+
+
+    <title></title>
+</head>
+<body onload="loadDoc()">
+
+<div id="fullPage">
+
+<table style="border: solid">
+    <tr>
+        <th class="pageTitle">*TEXAS STAR GOLF COURSE*</th>
+    </tr>
+</table>
+
+<div id="map"></div><br>
+
+<div class="nameEntry" id="promptMessage1">Please enter a name for Player 1</div><br>
+
+<div class="nameEntry" id="disappearName" ><input id="wantedName" placeholder="Type Name Here"/></div><br>
+
+<div class="nameEntry" id="promptButton"><button onclick="nameEntry()">SUBMIT</button></div><br>
+<div class="nameEntry" id="promptButton2"><button onclick="startGame()">START GAME</button></div><br>
+
+<div class="nameEntry" id="promptMessage2"></div><br>
+
+<table style="border: solid">
+    <tr>
+        <th class="cardTitle">SCORE CARD</th>
+    </tr>
+</table>
+<table style="border: solid">
+    <tr>
+        <th>Hole</th>
+        <th><button onclick="holeOut(0)"></button></th>
+        <th><button onclick="holeOut(1)"></button></th>
+        <th><button onclick="holeOut(2)"></button></th>
+        <th><button onclick="holeOut(3)"></button></th>
+        <th><button onclick="holeOut(4)"></button></th>
+        <th><button onclick="holeOut(5)"></button></th>
+        <th><button onclick="holeOut(6)"></button></th>
+        <th><button onclick="holeOut(7)"></button></th>
+        <th><button onclick="holeOut(8)"></button></th>
+        <th>Out</th>
+        <th><button onclick="holeIn(9)"></button></th>
+        <th><button onclick="holeIn(10)"></button></th>
+        <th><button onclick="holeIn(11)"></button></th>
+        <th><button onclick="holeIn(12)"></button></th>
+        <th><button onclick="holeIn(13)"></button></th>
+        <th><button onclick="holeIn(14)"></button></th>
+        <th><button onclick="holeIn(15)"></button></th>
+        <th><button onclick="holeIn(16)"></button></th>
+        <th><button onclick="holeIn(17)"></button></th>
+        <th>In</th>
+        <th>Tot</th>
+
+    </tr>
+    <tr>
+        <td class="name">Black Tees</td>
+        <td class="hidden"></td>
+        <td class="hidden"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="name">X</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="name">X</td>
+        <td class="name">X</td>
+    </tr>
+    <tr>
+        <td class="name">Blue Tees</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="name">X</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="name">X</td>
+        <td class="name">X</td>
+    </tr>
+    <tr id="player1">
+        <td class="name">Player 1</td>
+        <td><input class="score" type="text" name="scoreOut1" onblur="player1Total()"/></td>
+        <td><input class="score" type="text" name="scoreOut1" onblur="player1Total()"/></td>
+        <td><input class="score" type="text" name="scoreOut1" onblur="player1Total()"/></td>
+        <td><input class="score" type="text" name="scoreOut1" onblur="player1Total()"/></td>
+        <td><input class="score" type="text" name="scoreOut1" onblur="player1Total()"/></td>
+        <td><input class="score" type="text" name="scoreOut1" onblur="player1Total()"/></td>
+        <td><input class="score" type="text" name="scoreOut1" onblur="player1Total()"/></td>
+        <td><input class="score" type="text" name="scoreOut1" onblur="player1Total()"/></td>
+        <td><input class="score" type="text" name="scoreOut1" onblur="player1Total()"/></td>
+        <td class="name"></td>
+        <td><input class="score" type="text" name="scoreIn1" onblur="player1Total()"></td>
+        <td><input class="score" type="text" name="scoreIn1" onblur="player1Total()"></td>
+        <td><input class="score" type="text" name="scoreIn1" onblur="player1Total()"></td>
+        <td><input class="score" type="text" name="scoreIn1" onblur="player1Total()"></td>
+        <td><input class="score" type="text" name="scoreIn1" onblur="player1Total()"></td>
+        <td><input class="score" type="text" name="scoreIn1" onblur="player1Total()"></td>
+        <td><input class="score" type="text" name="scoreIn1" onblur="player1Total()"></td>
+        <td><input class="score" type="text" name="scoreIn1" onblur="player1Total()"></td>
+        <td><input class="score" type="text" name="scoreIn1" onblur="player1Total(); playerEndGame(44)"></td>
+        <td class="name"></td>
+        <td class="name"></td>
+    </tr>
+    <tr id="player2">
+        <td class="name">Player 2</td>
+        <td><input class="score" type="text" name="scoreOut2" onblur="player2Total()"></td>
+        <td><input class="score" type="text" name="scoreOut2" onblur="player2Total()"></td>
+        <td><input class="score" type="text" name="scoreOut2" onblur="player2Total()"></td>
+        <td><input class="score" type="text" name="scoreOut2" onblur="player2Total()"></td>
+        <td><input class="score" type="text" name="scoreOut2" onblur="player2Total()"></td>
+        <td><input class="score" type="text" name="scoreOut2" onblur="player2Total()"></td>
+        <td><input class="score" type="text" name="scoreOut2" onblur="player2Total()"></td>
+        <td><input class="score" type="text" name="scoreOut2" onblur="player2Total()"></td>
+        <td><input class="score" type="text" name="scoreOut2" onblur="player2Total()"></td>
+        <td class="name"></td>
+        <td><input class="score" type="text" name="scoreIn2" onblur="player2Total()"></td>
+        <td><input class="score" type="text" name="scoreIn2" onblur="player2Total()"></td>
+        <td><input class="score" type="text" name="scoreIn2" onblur="player2Total()"></td>
+        <td><input class="score" type="text" name="scoreIn2" onblur="player2Total()"></td>
+        <td><input class="score" type="text" name="scoreIn2" onblur="player2Total()"></td>
+        <td><input class="score" type="text" name="scoreIn2" onblur="player2Total()"></td>
+        <td><input class="score" type="text" name="scoreIn2" onblur="player2Total()"></td>
+        <td><input class="score" type="text" name="scoreIn2" onblur="player2Total()"></td>
+        <td><input class="score" type="text" name="scoreIn2" onblur="player2Total(); playerEndGame(66)"></td>
+        <td class="name"></td>
+        <td class="name"></td>
+    </tr>
+    <tr>
+        <td class="name">Par</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="name">X</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="name">X</td>
+        <td class="name">X</td>
+    </tr>
+    <tr id="player3">
+        <td class="name">Player 3</td>
+        <td><input class="score" type="text" name="scoreOut3" onblur="player3Total()"></td>
+        <td><input class="score" type="text" name="scoreOut3" onblur="player3Total()"></td>
+        <td><input class="score" type="text" name="scoreOut3" onblur="player3Total()"></td>
+        <td><input class="score" type="text" name="scoreOut3" onblur="player3Total()"></td>
+        <td><input class="score" type="text" name="scoreOut3" onblur="player3Total()"></td>
+        <td><input class="score" type="text" name="scoreOut3" onblur="player3Total()"></td>
+        <td><input class="score" type="text" name="scoreOut3" onblur="player3Total()"></td>
+        <td><input class="score" type="text" name="scoreOut3" onblur="player3Total()"></td>
+        <td><input class="score" type="text" name="scoreOut3" onblur="player3Total()"></td>
+        <td class="name"></td>
+        <td><input class="score" type="text" name="scoreIn3" onblur="player3Total()"></td>
+        <td><input class="score" type="text" name="scoreIn3" onblur="player3Total()"></td>
+        <td><input class="score" type="text" name="scoreIn3" onblur="player3Total()"></td>
+        <td><input class="score" type="text" name="scoreIn3" onblur="player3Total()"></td>
+        <td><input class="score" type="text" name="scoreIn3" onblur="player3Total()"></td>
+        <td><input class="score" type="text" name="scoreIn3" onblur="player3Total()"></td>
+        <td><input class="score" type="text" name="scoreIn3" onblur="player3Total()"></td>
+        <td><input class="score" type="text" name="scoreIn3" onblur="player3Total()"></td>
+        <td><input class="score" type="text" name="scoreIn3" onblur="player3Total(); playerEndGame(110)"></td>
+        <td class="name"></td>
+        <td class="name"></td>
+    </tr>
+    <tr id="player4">
+        <td class="name">Player 4</td>
+        <td><input class="score" type="text" name="scoreOut4" onblur="player4Total()"></td>
+        <td><input class="score" type="text" name="scoreOut4" onblur="player4Total()"></td>
+        <td><input class="score" type="text" name="scoreOut4" onblur="player4Total()"></td>
+        <td><input class="score" type="text" name="scoreOut4" onblur="player4Total()"></td>
+        <td><input class="score" type="text" name="scoreOut4" onblur="player4Total()"></td>
+        <td><input class="score" type="text" name="scoreOut4" onblur="player4Total()"></td>
+        <td><input class="score" type="text" name="scoreOut4" onblur="player4Total()"></td>
+        <td><input class="score" type="text" name="scoreOut4" onblur="player4Total()"></td>
+        <td><input class="score" type="text" name="scoreOut4" onblur="player4Total()"></td>
+        <td class="name"></td>
+        <td><input class="score" type="text" name="scoreIn4" onblur="player4Total()"></td>
+        <td><input class="score" type="text" name="scoreIn4" onblur="player4Total()"></td>
+        <td><input class="score" type="text" name="scoreIn4" onblur="player4Total()"></td>
+        <td><input class="score" type="text" name="scoreIn4" onblur="player4Total()"></td>
+        <td><input class="score" type="text" name="scoreIn4" onblur="player4Total()"></td>
+        <td><input class="score" type="text" name="scoreIn4" onblur="player4Total()"></td>
+        <td><input class="score" type="text" name="scoreIn4" onblur="player4Total()"></td>
+        <td><input class="score" type="text" name="scoreIn4" onblur="player4Total()"></td>
+        <td><input class="score" type="text" name="scoreIn4" onblur="player4Total(); playerEndGame(132); endOfGame()"></td>
+        <td class="name"></td>
+        <td class="name"></td>
+    </tr>
+    <tr>
+        <td class="name">White Tees</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="name">X</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="name">X</td>
+        <td class="name">X</td>
+    </tr>
+    <tr>
+        <td class="name">Red Tees</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="name">X</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="name">X</td>
+        <td class="name">X</td>
+    </tr>
+
+</table>
+
+<div id="demo"></div>
+
+</div>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAf23sKxfQMT4dWdgJvWiI5TUMhSm_5e_U&signed_in=true&callback=initMap"></script>
+
+<script src="golfMap.js"></script>
+</body>
+</html>
+
+<!--texas star golf course-->

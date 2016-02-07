@@ -1,0 +1,60 @@
+table {
+    width: 1200px; border: thick;
+}
+th {
+    border: 1px solid black; text-align: center; font-size: large; background-color: chocolate;
+}
+td {
+    border: 1px solid black; text-align: center; background-color: greenyellow;
+}
+.cardTitle {
+    font-size: x-large;
+}
+button {
+    font-size: large; background-color: cornflowerblue;
+}
+.pageTitle {
+    font-size: xx-large;
+}
+input {
+    background-color: greenyellow; text-align: center;
+}
+.score {
+    width: 20px; font-size: medium;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#map {
+    height: 1200px; width: 1200px;
+}
+.name {
+    font-size: medium; font-weight: bold;
+}
+.nameEntry {
+    text-align: center; width: 1200px;
+}
+#promptMessage1 {
+    font-size: x-large; font-weight: bold;
+}
+#promptMessage2 {
+    font-size: x-large; font-weight: bold;
+}
+body {
+    font-family: 'Russo One', sans-serif;
+    background-image: url("golfBackground.png");
+}
+#fullPage {
+    width: 1200px; margin: auto;
+}
+.score {
+      display: none;
+}
+#promptMessage1 {
+    background-color: white;
+}
+#promptMessage2 {
+    background-color: white;
+}
